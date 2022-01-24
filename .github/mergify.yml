@@ -2,7 +2,9 @@ pull_request_rules:
   - name: Automatic merge
     conditions:
       - base=main
-      - check-success=SonarCloud Code Analysis
+      - and:
+        - check-success=all-tests
+        - check-success=SonarCloud Code Analysis
     actions:
       merge:
         method: merge
